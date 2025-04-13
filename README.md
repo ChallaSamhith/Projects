@@ -8,7 +8,7 @@ This repository contains multiple projects that explore different areas of secur
 To get started with any project in this repository, follow these general steps:
 
 1. Clone the repository
-   git clone https://github.com/<your-username>/Projects.git
+   git clone https://github.com/ChallaSamhith/Projects.git
    cd Projects
 
 2. Install Dependencies
