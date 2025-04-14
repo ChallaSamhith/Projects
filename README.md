@@ -1,4 +1,4 @@
-#CyberSecurity HomeLab Setup
+**CyberSecurity HomeLab Setup**
 
 This project documents the creation of a fully isolated virtual cybersecurity lab using VirtualBox. The lab includes an attacker machine (Parrot OS) and a target machine (Metasploitable 2), connected via an internal-only network. It is designed for safe, offline testing of cybersecurity tools, network monitoring, and system analysis without any risk to the host machine or the internet.
 
