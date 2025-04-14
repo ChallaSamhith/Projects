@@ -41,30 +41,50 @@ Using static IPs ensures predictable connectivity and simplifies tool use like N
 **Parrot OS (Attacker VM)**
 - Boot Parrot OS in VirtualBox.
 - Open a terminal and edit the network configuration file:
+  
      `sudo nano /etc/network/interfaces`
 - Add or modify the following configuration:
+  
      `auto eth0`
+  
      `iface eth0 inet static`
-          `address 10.10.10.10`
-          `netmask 255.255.255.0`
-          `network 10.10.10.0`
+
+     `address 10.10.10.10`
+
+     `netmask 255.255.255.0`
+
+     `network 10.10.10.0`
+
 - Restart networking service:
+  
      `sudo systemctl restart networking`
 
  **Metasploitable 2 (Target VM)**
 - Boot Metasploitable 2 in VirtualBox.
 - Login with default credentials:
+
      `username: msfadmin`
+  
      `password: msfadmin`
+  
 - Edit the network config file:
+  
      `sudo nano /etc/network/interfaces`
+  
 - Modify or add:
+  
      `auto eth0`
+
      `iface eth0 inet static`
-          `address 10.10.10.20`
-          `netmask 255.255.255.0`
-          `network 10.10.10.0`
+
+     `address 10.10.10.20`
+
+     `netmask 255.255.255.0`
+
+     `network 10.10.10.0`
+  
 - Restart networking:
+  
      `sudo /etc/init.d/networking restart`
 
 
@@ -73,12 +93,19 @@ To ensure the lab is fully air-gapped:
 - Only Internal Network is used — no NAT, no Bridged, no Host-only adapters are attached.
 - VMs cannot ping external domains or your host system.
 - Use the following tests:
+  
      From Parrot OS:
-           `ping 10.10.10.20   # ✅ Should succeed – communication with Metasploitable 2`
-           `ping google.com    # ❌ Should fail – no internet access`
+  
+     `ping 10.10.10.20   # ✅ Should succeed – communication with Metasploitable 2`
+
+     `ping google.com    # ❌ Should fail – no internet access`
+  
      From Metasploitable 2:
-           `ping 10.10.10.10   # ✅ Should succeed`
-           `ping 8.8.8.8       # ❌ Should fail`
+  
+     `ping 10.10.10.10   # ✅ Should succeed`
+
+     `ping 8.8.8.8       # ❌ Should fail`
+  
 - You can also run netstat -rn or ip route to confirm there is no default gateway defined.
 
 
